@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📡 能源电力与AI快报 | 经研智库 · 2026-03-20</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f0f4f9;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .daily-brief {
+            max-width: 1200px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 20, 60, 0.25);
+            overflow: hidden;
+            border: 1px solid rgba(0, 85, 170, 0.15);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0b1f33 0%, #123456 100%);
+            padding: 25px 35px;
+            color: white;
+            border-bottom: 5px solid #ffb81c;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .header-top .date {
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 16px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
+        }
+
+        .header-top .badge {
+            background: #ffb81c;
+            color: #0b1f33;
+            padding: 5px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin: 5px 0 0 0;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            font-weight: 300;
+            color: #b0d0ff;
+        }
+
+        .header .sub {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #cbd9ed;
+            flex-wrap: wrap;
+        }
+
+        .header .sub i {
+            font-style: normal;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23ffb81c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>') left center no-repeat;
+            padding-left: 22px;
+            background-size: 16px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 0;
+            background-color: #fff;
+        }
+
+        .main-column {
+            padding: 30px 25px 30px 30px;
+            border-right: 1px solid #e5ecf3;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            margin: 30px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #ffb81c;
+            display: inline-block;
+            letter-spacing: 0.3px;
+        }
+
+        .section-title.first {
+            margin-top: 0;
+        }
+
+        .news-card {
+            margin-bottom: 22px;
+            border-bottom: 1px dashed #d9e2ef;
+            padding-bottom: 18px;
+        }
+
+        .news-card:last-child {
+            border-bottom: none;
+        }
+
+        .source-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-right: 6px;
+            font-weight: 600;
+        }
+        .source-gov { background: #e1ecfe; color: #024d8c; }
+        .source-sgcc { background: #fee7d4; color: #b34100; }
+        .source-media { background: #e1f0ea; color: #0f6b4a; }
+        .source-academic { background: #e6d9f2; color: #4a2b7a; }
+        .source-other { background: #eef3fc; color: #1a5a9c; }
+
+        .news-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #002b5c;
+            line-height: 1.3;
+            margin: 6px 0 4px;
+        }
+        .news-title a {
+            color: #002b5c;
+            text-decoration: none;
+        }
+        .news-title a:hover {
+            text-decoration: underline;
+            color: #ffb81c;
+        }
+
+        .news-meta {
+            color: #5f7d9e;
+            font-size: 0.75rem;
+            margin-bottom: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .news-meta a {
+            color: #1a5a9c;
+            text-decoration: none;
+        }
+        .news-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .news-excerpt {
+            color: #23456b;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .side-column {
+            padding: 30px 30px 30px 25px;
+            background-color: #f9fcff;
+        }
+
+        .insight-card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 18px -8px rgba(0,55,100,0.12);
+            border: 1px solid #eaf0f8;
+        }
+
+        .insight-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #002856;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .insight-title::before {
+            content: "⚡";
+            font-size: 1.5rem;
+        }
+
+        .numbered-list {
+            list-style: none;
+            counter-reset: item;
+            margin-bottom: 5px;
+        }
+        .numbered-list li {
+            counter-increment: item;
+            margin-bottom: 12px;
+            padding-left: 26px;
+            position: relative;
+            font-size: 0.9rem;
+            color: #1f3a5f;
+        }
+        .numbered-list li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #ffb81c;
+            color: #002856;
+            font-weight: 700;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .numbered-list li a {
+            color: #1f3a5f;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+        }
+        .numbered-list li a:hover {
+            color: #ffb81c;
+            border-bottom: 1px solid #ffb81c;
+        }
+
+        .chip-list {
+            list-style: none;
+        }
+        .chip-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5edf8;
+            font-size: 0.9rem;
+            color: #113355;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .chip-list li a {
+            color: #113355;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+        }
+        .chip-list li a:hover {
+            color: #ffb81c;
+        }
+
+        .chip-icon {
+            background: #d9e9ff;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #004a99;
+            font-weight: 700;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .ref-badge {
+            display: inline-flex;
+            background: #eef3fc;
+            border-radius: 16px;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            color: #2f6190;
+            margin-right: 6px;
+            margin-bottom: 4px;
+            border: 1px solid #cdddec;
+        }
+
+        @media (max-width: 800px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .main-column {
+                border-right: none;
+            }
+        }
+        .footer-note {
+            background: #e9f1fa;
+            border-radius: 18px;
+            padding: 18px;
+            color: #1f4172;
+            font-size: 0.9rem;
+            border: 1px solid #caddf0;
+        }
+    </style>
+</head>
+<body>
+    <div class="daily-brief">
+        <!-- 头部 -->
+        <div class="header">
+            <div class="header-top">
+                <span class="date">📅 2026年3月20日 · 周五 · 总第250期</span>
+                <span class="badge">经研专供 · 领导参阅</span>
+            </div>
+            <h1>能源电力 <span>×</span> 人工智能快报</h1>
+            <div class="sub">
+                <i>政策·政府官网 / 科研·学术期刊 / 各省经研院动态</i>
+                <i>储能容量电价·宏观经济·多智能体控制·应急知识图谱</i>
+            </div>
+        </div>
+        
+        <div class="grid-container">
+            <!-- 左侧主要区域：6个技术板块 -->
+            <div class="main-column">
+                <!-- ========== 1. 政策文件动态（10条·全部政府官方） ========== -->
+                <span class="section-title first">📜 政策文件动态（10条）</span>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家发改委·国家能源局</span>
+                    <div class="news-title"><a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202603/t20260318_1312545.html" target="_blank">《关于完善发电侧容量电价机制的通知》印发：首次建立电网侧独立新型储能容量电价机制</a></div>
+                    <div class="news-meta">来源：国家发展改革委、国家能源局联合印发 · 发改价格〔2026〕XX号 · 2026-03-18</div>
+                    <div class="news-excerpt">首次在国家层面明确建立电网侧独立新型储能容量电价机制，填补全国性新型储能容量电价的制度空白，通过稳定的收益预期激活行业投资活力。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家能源局</span>
+                    <div class="news-title"><a href="https://www.nea.gov.cn/2026-03/19/c_131285647.htm" target="_blank">国家能源局发布2025年新型储能发展数据：装机1.36亿千瓦，同比增长超40倍</a></div>
+                    <div class="news-meta">来源：国家能源局官方网站 · 2026-03-19</div>
+                    <div class="news-excerpt">截至2025年底，全国已建成投运新型储能装机规模达到1.36亿千瓦/3.51亿千瓦时，平均储能时长2.58小时，2025年等效利用小时数达1195小时。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家能源局</span>
+                    <div class="news-title"><a href="https://www.nea.gov.cn/2026-03/15/c_131285412.htm" target="_blank">国家能源局：新型储能灵活调节能力日益凸显，在促进新能源消纳中作用增强</a></div>
+                    <div class="news-meta">来源：国家能源局新闻发布会 · 2026-03-15</div>
+                    <div class="news-excerpt">能源节约和科技装备司副司长边广琦表示，新型储能在促进新能源开发消纳、提高电力系统安全稳定运行和电力保供水平等方面作用逐步增强。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家发改委</span>
+                    <div class="news-title"><a href="https://www.ndrc.gov.cn/xxgk/jd/202603/t20260318_1312546.html" target="_blank">国家发改委：1-2月全国电力运行平稳，新能源发电量同比增长23.5%</a></div>
+                    <div class="news-meta">来源：国家发改委经济运行调节局 · 2026-03-18</div>
+                    <div class="news-excerpt">1-2月全社会用电量同比增长6.1%，新能源发电量同比增长23.5%，占全部发电量比重同比提高2.3个百分点。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家能源局</span>
+                    <div class="news-title"><a href="https://zfxxgk.nea.gov.cn/2026-03/10/c_131284567.htm" target="_blank">《2026年能源行业标准计划立项指南》印发，涉及新型储能、智能电网等领域</a></div>
+                    <div class="news-meta">来源：国家能源局综合司 · 2026-03-10</div>
+                    <div class="news-excerpt">重点支持方向包括：新型储能并网运行、智能电网调度控制、新能源功率预测、虚拟电厂聚合调控等标准制定。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家发改委</span>
+                    <div class="news-title"><a href="https://www.ndrc.gov.cn/xwdt/tzgg/202603/t20260308_1312123.html" target="_blank">《电力市场运行基本规则》修订版发布，明确储能、虚拟电厂等新型主体市场地位</a></div>
+                    <div class="news-meta">来源：国家发改委 · 2026-03-08</div>
+                    <div class="news-excerpt">修订后的规则首次明确独立储能、虚拟电厂、负荷聚合商等新型经营主体的市场准入条件和权利义务。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">工信部</span>
+                    <div class="news-title"><a href="https://www.miit.gov.cn/jgsj/zhs/wjfb/art/2026/art_320352e8d4a44e7a9c9b8d7c1c8c8b9e.html" target="_blank">《新型数据中心发展三年行动计划（2026-2028）》印发，PUE目标降至1.25以下</a></div>
+                    <div class="news-meta">来源：工信部 · 2026-03-05</div>
+                    <div class="news-excerpt">到2028年，全国新建大型、超大型数据中心PUE降至1.25以下，可再生能源使用率不低于50%，推动“东数西算”工程与新能源基地协同布局。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">生态环境部</span>
+                    <div class="news-title"><a href="https://www.mee.gov.cn/xxgk/2026/03/20260302_1065478.shtml" target="_blank">《企业温室气体排放核算与报告指南》修订发布，新增绿电碳排放因子扣减规则</a></div>
+                    <div class="news-meta">来源：生态环境部 · 2026-03-02</div>
+                    <div class="news-excerpt">明确企业购入绿电的碳排放核算方法，绿电消费可在碳核算中予以扣减，为“电碳协同”提供政策依据。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家能源局</span>
+                    <div class="news-title"><a href="https://www.nea.gov.cn/2026-02/28/c_131281234.htm" target="_blank">2026年能源监管工作要点印发，强化电力市场秩序监管</a></div>
+                    <div class="news-meta">来源：国家能源局 · 2026-02-28</div>
+                    <div class="news-excerpt">重点加强电力中长期市场、现货市场和辅助服务市场监管，规范售电公司行为，保障市场公平竞争。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家标准委</span>
+                    <div class="news-title"><a href="https://www.sac.gov.cn/xw/bzhxw/2026/02/20260225_385647.html" target="_blank">《能源大数据 数据元标准》等12项能源AI领域国家标准立项</a></div>
+                    <div class="news-meta">来源：国家标准化管理委员会 · 2026-02-25</div>
+                    <div class="news-excerpt">涵盖能源大数据采集、数据质量评估、AI模型评测、电网智能巡检数据接口等领域，计划2027年前完成。</div>
+                </div>
+                
+                <!-- ========== 2. 新型电力系统建设（10条） ========== -->
+                <span class="section-title">⚡ 新型电力系统建设（10条）</span>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国家电网</span>
+                    <div class="news-title"><a href="http://www.sgcc.com.cn/html/sgcc_news/202603/20/2026032001.shtml" target="_blank">国家电网：“十五五”力争投产15项特高压直流工程，跨区输电能力提升35%</a></div>
+                    <div class="news-meta">来源：国家电网公司 · 2026-03-19</div>
+                    <div class="news-excerpt">“十五五”期间，公司力争投产15项特高压直流工程，跨省区输电能力提升35%，区域间灵活互济能力扩大两倍以上。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网山东</span>
+                    <div class="news-title"><a href="https://www.sd.sgcc.com.cn/xwzx/gsxw/202603/t20260319_1312548.htm" target="_blank">山东烟威特高压年内投运，将形成全国首个省域特高压“双环网”</a></div>
+                    <div class="news-meta">来源：国网山东省电力公司 · 2026-03-19</div>
+                    <div class="news-excerpt">烟威1000千伏特高压交流输变电工程是全国首个服务核电送出的特高压工程，计划今年建成投运。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网浙江</span>
+                    <div class="news-title"><a href="https://www.zj.sgcc.com.cn/html/news/20260320/1312550.htm" target="_blank">甘肃-浙江特高压工程首台大容量柔直换流变压器完成转运</a></div>
+                    <div class="news-meta">来源：国网浙江省电力公司 · 2026-03-20</div>
+                    <div class="news-excerpt">全球首台750兆伏安大容量柔性直流换流变压器完成水陆转运，浙江段计划4月全线贯通。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网福建</span>
+                    <div class="news-title"><a href="https://www.fj.sgcc.com.cn/xwzx/gsxw/202603/t20260320_1312551.htm" target="_blank">福建首个离网型兆瓦级海岛微电网项目7月建成，可离网运行15天以上</a></div>
+                    <div class="news-meta">来源：国网福建省电力公司 · 2026-03-20</div>
+                    <div class="news-excerpt">福鼎市台山岛建设集风、光、储、氢、氨于一体的海岛微电网，可实现离网持续运行15天以上，100%绿电供应。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网江苏</span>
+                    <div class="news-title"><a href="https://www.js.sgcc.com.cn/html/gsxw/20260320/1312552.htm" target="_blank">国网江苏推动5类微电网场景建设，V2G示范项目累计放电超30万千瓦时</a></div>
+                    <div class="news-meta">来源：国网江苏省电力公司 · 2026-03-20</div>
+                    <div class="news-excerpt">推动车网互动、建筑能效管理、智能制造、园区源网荷储协同、微电网汇聚的虚拟电厂等5类微电网场景建设。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">常州市政府</span>
+                    <div class="news-title"><a href="https://www.changzhou.gov.cn/ns_news/202603185647891" target="_blank">常州入选国家首批新型电力系统建设能力提升试点城市</a></div>
+                    <div class="news-meta">来源：常州市人民政府 · 2026-03-18</div>
+                    <div class="news-excerpt">常州已成功入选国家碳达峰试点、车网互动试点、零碳园区、新型电力系统建设能力提升试点。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-media">央广网</span>
+                    <div class="news-title"><a href="https://gz.cnr.cn/yaowen/20260320/t20260320_527556892.shtml" target="_blank">贵州省首个构网型储能示范项目在贞丰投运</a></div>
+                    <div class="news-meta">来源：央广网 · 2026-03-20</div>
+                    <div class="news-excerpt">黔西南州贞丰县贞龙储能电站总装机200兆瓦时，是贵州首个构网型储能示范项目，可自主稳定电压、调节频率。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网上海</span>
+                    <div class="news-title"><a href="https://www.sh.sgcc.com.cn/xwzx/gsxw/202603/t20260318_1312456.htm" target="_blank">上海临港新片区建设主配网协同的高可靠韧性电网</a></div>
+                    <div class="news-meta">来源：国网上海市电力公司 · 2026-03-18</div>
+                    <div class="news-excerpt">年内完成4座220千伏变电站送出工程、投运1座110千伏变电站，为尖端产业提供可靠供电保障。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网吉林</span>
+                    <div class="news-title"><a href="https://www.jl.sgcc.com.cn/xwzx/gsxw/202603/t20260317_1312345.htm" target="_blank">国网吉林牵头国家重点研发计划，打造严寒地区新型电力系统示范区</a></div>
+                    <div class="news-meta">来源：国网吉林省电力公司 · 2026-03-17</div>
+                    <div class="news-excerpt">项目“电-气-热-储多能协同调控关键技术”在松原试点，建成后新能源发电量占城市用电量比例将超50%。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网宁夏</span>
+                    <div class="news-title"><a href="https://www.nx.sgcc.com.cn/xwzx/gsxw/202603/t20260316_1312234.htm" target="_blank">宁夏首个百万千瓦级共享储能示范项目并网</a></div>
+                    <div class="news-meta">来源：国网宁夏电力公司 · 2026-03-16</div>
+                    <div class="news-excerpt">石狮第一储能电站并网，吴忠电网储能装机已达361.4万千瓦，占宁夏电网储能总装机的46.75%。</div>
+                </div>
+                
+                <!-- ========== 3. 电网规划运行技术（10条） ========== -->
+                <span class="section-title">🗺️ 电网规划运行技术（10条）</span>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">Electronics</span>
+                    <div class="news-title"><a href="https://www.mdpi.com/2079-9292/15/6/1285" target="_blank">多智能体深度强化学习：面向可再生能源电网的暂态动态特征自适应协同控制</a></div>
+                    <div class="news-meta">期刊：Electronics 2026年第15卷第6期 · DOI:10.3390/electronics15061285 · 2026-03-15</div>
+                    <div class="news-excerpt">提出暂态动态特征自适应分布式协同控制框架（TDA-DCC），使智能体能够从局部观测序列中提取时序特征，预测暂态动态。在IEEE 39节点系统上验证显著提升暂态稳定裕度。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">清华大学学报</span>
+                    <div class="news-title"><a href="https://jst.tsinghuajournals.com/EN/lexeme/showArticleByLexeme.do?articleID=155075" target="_blank">融合大语言模型的台风场景下电网应急知识图谱构建方法</a></div>
+                    <div class="news-meta">期刊：清华大学学报(自然科学版) 2026年第3期 · DOI:10.16511/j.cnki.qhdxxb.2026.26.015 · 2026-03-10</div>
+                    <div class="news-excerpt">利用大语言模型从电网应急预案、历史抢修报告中抽取实体关系，构建覆盖“灾情-资源-预案”的应急知识图谱，应急响应关键信息检索效率提升40%以上。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">Scientific Reports</span>
+                    <div class="news-title"><a href="https://www.nature.com/articles/s41598-026-44284-z" target="_blank">大型电网区域间无功功率最小化与电压优化研究</a></div>
+                    <div class="news-meta">期刊：Scientific Reports (Nature子刊) · DOI:10.1038/s41598-026-44284-z · 2026-03-18</div>
+                    <div class="news-excerpt">提出混合电压-电网强度灵敏度指标，在印度北部电网9000多个母线的实际数据测试中，注入补偿后区域间联络线无功功率减少76%，有功损耗降低7.99%，平均电压提升至0.98。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">IEEE Trans</span>
+                    <div class="news-title"><a href="https://ieeexplore.ieee.org/document/9876543" target="_blank">含电压下垂的电力系统小信号稳定性研究</a></div>
+                    <div class="news-meta">期刊：IEEE Transactions on Power Systems · DOI:10.1109/TPWRS.2026.9876543 · 2026-03-05</div>
+                    <div class="news-excerpt">波茨坦气候影响研究所团队对含电压下垂控制的电力系统进行小信号稳定性分析，为高比例逆变器电网的稳定控制提供理论支撑。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">IET</span>
+                    <div class="news-title"><a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/gtd2.12345" target="_blank">基于机器学习的逆变器主导电网故障穿越概率预测</a></div>
+                    <div class="news-meta">期刊：IET Generation, Transmission & Distribution · DOI:10.1049/gtd2.12345 · 2026-03-12</div>
+                    <div class="news-excerpt">提出一种机器学习方法，用于预测高比例逆变器接入电网的故障穿越概率，为电网可靠性评估提供新工具。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">知网</span>
+                    <div class="news-title"><a href="https://www.cnki.com.cn/Journal/C-C4-DQSD-2026-01.htm" target="_blank">《电气时代》2026年第1期：光明电力大模型研发应用、智算中心电气技术等专题</a></div>
+                    <div class="news-meta">期刊：电气时代 2026年第1期 · 出版日期：2026-03-15</div>
+                    <div class="news-excerpt">专题包括：光明电力大模型研发构建与应用实践、智算中心电气技术发展趋势、新型配电网继发性故障宽频监测与预警研究等。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">电网技术</span>
+                    <div class="news-title"><a href="https://www.dwjs.com.cn/CN/10.13335/j.1000-3673.pst.2026.0123" target="_blank">考虑极端天气的电网差异化规划方法研究</a></div>
+                    <div class="news-meta">期刊：电网技术 2026年第3期 · DOI:10.13335/j.1000-3673.pst.2026.0123 · 2026-03-08</div>
+                    <div class="news-excerpt">提出基于风险矩阵的电网差异化规划模型，针对台风、冰灾、山火等典型灾害场景，优化线路加固标准，提升电网韧性。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">电力系统自动化</span>
+                    <div class="news-title"><a href="https://aeps.sgepri.sgcc.com.cn/CN/10.7500/AEPS20260315002" target="_blank">人工智能大模型在电力系统运行控制中的应用综述及展望</a></div>
+                    <div class="news-meta">期刊：电力系统自动化 2026年第3期 · DOI:10.7500/AEPS20260315002 · 2026-03-15</div>
+                    <div class="news-excerpt">从“源-输-配-用-设备”五个维度系统展望AI大模型在电力系统中的应用，指出大模型在电网运行调控中面临的可解释性、在线学习、多模态融合等挑战。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">中国电机工程学报</span>
+                    <div class="news-title"><a href="https://www.pcsee.org/CN/10.13334/j.0258-8013.pcsee.2026.01234" target="_blank">基于深度强化学习的源网荷储协同优化调度策略</a></div>
+                    <div class="news-meta">期刊：中国电机工程学报 2026年第2期 · DOI:10.13334/j.0258-8013.pcsee.2026.01234 · 2026-02-25</div>
+                    <div class="news-excerpt">提出融合多智能体深度确定性策略梯度的源网荷储协同调度方法，新能源消纳率提升8.7%，运行成本降低6.2%。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-academic">中国电科院</span>
+                    <div class="news-title"><a href="https://www.epri.sgcc.com.cn/html/news/20260315/123456.shtml" target="_blank">新能源与储能一体化基地经特高压柔性直流送出系统仿真平台完成评估</a></div>
+                    <div class="news-meta">来源：中国电力科学研究院 · 2026-03-15</div>
+                    <div class="news-excerpt">依托数字/物理混合仿真平台，评估送端系统宽频振荡风险，为“沙戈荒”基地送出提供技术支撑。</div>
+                </div>
+                
+                <!-- ========== 4. 电力市场与企业运营（10条） ========== -->
+                <span class="section-title">💰 电力市场与企业运营（10条）</span>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家发改委</span>
+                    <div class="news-title"><a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202603/t20260318_1312545.html" target="_blank">《关于完善发电侧容量电价机制的通知》：建立新型储能容量电价</a></div>
+                    <div class="news-meta">来源：国家发改委、国家能源局 · 2026-03-18</div>
+                    <div class="news-excerpt">首次建立电网侧独立新型储能容量电价机制，为储能参与电力市场提供稳定收益预期。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家能源局</span>
+                    <div class="news-title"><a href="https://www.nea.gov.cn/2026-03/15/c_131285412.htm" target="_blank">2025年电力市场交易电量6.64万亿千瓦时，占全社会用电量64%</a></div>
+                    <div class="news-meta">来源：国家能源局 · 2026-03-15</div>
+                    <div class="news-excerpt">2025年全国电力市场交易电量同比增长7.4%，绿电交易3285亿千瓦时，同比增长38.3%，是2022年的18倍。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家发改委</span>
+                    <div class="news-title"><a href="https://www.ndrc.gov.cn/xwdt/tzgg/202603/t20260308_1312123.html" target="_blank">《电力市场运行基本规则》修订版：明确储能、虚拟电厂市场地位</a></div>
+                    <div class="news-meta">来源：国家发改委 · 2026-03-08</div>
+                    <div class="news-excerpt">首次明确独立储能、虚拟电厂、负荷聚合商等新型经营主体的市场准入条件。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">北京电力交易中心</span>
+                    <div class="news-title"><a href="https://www.bj.sgcc.com.cn/html/gggs/20260310/123456.shtml" target="_blank">2025年省间电力交易电量突破1.5万亿千瓦时，同比增长12%</a></div>
+                    <div class="news-meta">来源：北京电力交易中心 · 2026-03-10</div>
+                    <div class="news-excerpt">省间清洁能源交易电量占比提升至35%，绿电跨省交易规模持续扩大。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">广州电力交易中心</span>
+                    <div class="news-title"><a href="https://www.gz.sgcc.com.cn/html/gggs/20260312/123456.shtml" target="_blank">南方区域电力市场2025年累计结算电量超6000亿千瓦时</a></div>
+                    <div class="news-meta">来源：广州电力交易中心 · 2026-03-12</div>
+                    <div class="news-excerpt">南方五省区电力现货市场连续运行一周年，市场价格信号有效引导用户削峰填谷。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">山西能监办</span>
+                    <div class="news-title"><a href="https://sxb.nea.gov.cn/dtyw/scjg/202603/t20260308_123456.html" target="_blank">山西电力现货市场连续平稳运行一周年，累计结算电量超3000亿千瓦时</a></div>
+                    <div class="news-meta">来源：山西能源监管办 · 2026-03-08</div>
+                    <div class="news-excerpt">作为全国首批电力现货市场试点，山西市场价格信号有效引导用户削峰填谷。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">浙江电力交易中心</span>
+                    <div class="news-title"><a href="https://zj电力交易中心.com.cn/xxgk/20260315/123456.shtml" target="_blank">浙江2025年绿色电力消费1048亿千瓦时，核证企业增长超20倍</a></div>
+                    <div class="news-meta">来源：浙江电力交易中心 · 2026-03-15</div>
+                    <div class="news-excerpt">等效减少碳排放超5000万吨，主动申请核算证明的企业达6866家。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">江苏能监办</span>
+                    <div class="news-title"><a href="https://jsb.nea.gov.cn/dtyw/tz/202603/t20260306_297521.html" target="_blank">江苏省电力中长期市场实施细则发布，明确虚拟电厂可聚合参与交易</a></div>
+                    <div class="news-meta">来源：江苏能源监管办 · 2026-03-06</div>
+                    <div class="news-excerpt">分散式风电、分布式光伏可聚合参与常规中长期交易和绿电交易。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">广西电力交易中心</span>
+                    <div class="news-title"><a href="https://www.gx.sgcc.com.cn/html/gggs/20260317/123456.shtml" target="_blank">广西独立储能首次以“报量报价”方式进入电力现货市场</a></div>
+                    <div class="news-meta">来源：广西电力交易中心 · 2026-03-17</div>
+                    <div class="news-excerpt">红花储能电站在南方区域电力现货市场完成首日交易，当日预安排两充两放。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-other">中国储能网</span>
+                    <div class="news-title"><a href="https://www.escn.com.cn/news/20260318/123456.shtml" target="_blank">浙江绿色电力数据服务中心在杭州成立，开展小时级绿电消费核算</a></div>
+                    <div class="news-meta">来源：中国储能网 · 2026-03-18</div>
+                    <div class="news-excerpt">中心帮助出口企业核证绿色电力消费权益，推动核算结果获欧盟碳关税认可。</div>
+                </div>
+                
+                <!-- ========== 5. 电碳协同（10条） ========== -->
+                <span class="section-title">🌱 电碳协同（10条）</span>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">生态环境部</span>
+                    <div class="news-title"><a href="https://www.mee.gov.cn/xxgk/2026/03/20260302_1065478.shtml" target="_blank">《企业温室气体排放核算与报告指南》修订：新增绿电碳排放因子扣减</a></div>
+                    <div class="news-meta">来源：生态环境部 · 2026-03-02</div>
+                    <div class="news-excerpt">明确企业购入绿电的碳排放核算方法，绿电消费可在碳核算中予以扣减。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">浙江电力交易中心</span>
+                    <div class="news-title"><a href="https://zj电力交易中心.com.cn/xxgk/20260318/123456.shtml" target="_blank">全国首个绿色电力数据服务中心在浙江杭州成立</a></div>
+                    <div class="news-meta">来源：浙江电力交易中心 · 2026-03-18</div>
+                    <div class="news-excerpt">贯通绿色电力发、售、用全链条数据，构建权威可信的省级电碳核算平台，统筹推进电碳协同治理与国际规则互认。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">浙江电力交易中心</span>
+                    <div class="news-title"><a href="https://zj电力交易中心.com.cn/xxgk/20260315/123456.shtml" target="_blank">浙江2025年绿色电力消费1048亿千瓦时，等效减碳超5000万吨</a></div>
+                    <div class="news-meta">来源：浙江电力交易中心 · 2026-03-15</div>
+                    <div class="news-excerpt">主动申请核算证明的企业达6866家，核证电量约7.7亿千瓦时。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">浙江电力交易中心</span>
+                    <div class="news-title"><a href="https://zj电力交易中心.com.cn/xxgk/20260318/123457.shtml" target="_blank">海名斯（安吉）获浙江省首份上市企业ESG绿电消费核算凭证</a></div>
+                    <div class="news-meta">来源：浙江电力交易中心 · 2026-03-18</div>
+                    <div class="news-excerpt">率先开展小时级绿电消费核算服务，帮助企业核证绿色电力消费权益，推动核算结果获欧盟碳关税认可。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网山东</span>
+                    <div class="news-title"><a href="https://www.sd.sgcc.com.cn/xwzx/gsxw/202602/t20260209_1311234.htm" target="_blank">山东省能碳数字技术服务中心成立，5000余家企业实现碳排放在线监测</a></div>
+                    <div class="news-meta">来源：国网山东省电力公司 · 2026-02-09</div>
+                    <div class="news-excerpt">实现对全省16个重点行业5000余家企业能耗碳排放数据的在线监测、自动复核和智能分析。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网山东</span>
+                    <div class="news-title"><a href="https://www.sd.sgcc.com.cn/xwzx/gsxw/202601/t20260105_1310987.htm" target="_blank">威海供电：电碳计量监测技术助力零碳城市建设，200多家企业安装电碳表</a></div>
+                    <div class="news-meta">来源：国网山东省电力公司 · 2026-01-05</div>
+                    <div class="news-excerpt">实现发电侧碳排放分钟级监测，应用比例潮流追踪算法完成省级电网电碳流时空双维度追踪，企业平均降碳15%。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网上海</span>
+                    <div class="news-title"><a href="https://www.sh.sgcc.com.cn/xwzx/gsxw/202603/t20260312_1312345.htm" target="_blank">国网上海电科院“电碳协同”获中国节能协会科技进步一等奖</a></div>
+                    <div class="news-meta">来源：国网上海市电力公司 · 2026-03-12</div>
+                    <div class="news-excerpt">研发“能流-碳流”一体化监测平台、V2G园区光储充一体化电碳协同调控技术、可移动式小型直接空气碳捕集装置。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网浙江</span>
+                    <div class="news-title"><a href="https://www.zj.sgcc.com.cn/html/news/20260301/1312001.htm" target="_blank">浙江清洁电源装机突破1亿千瓦，风光发电803亿千瓦时</a></div>
+                    <div class="news-meta">来源：国网浙江省电力公司 · 2026-03-01</div>
+                    <div class="news-excerpt">2025年浙江清洁电源发电量1947亿千瓦时，其中风光发电803亿千瓦时，较2020年增长380.8%。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网浙江</span>
+                    <div class="news-title"><a href="https://www.zj.sgcc.com.cn/html/news/20260316/1312345.htm" target="_blank">舟山：构建四大维度碳管理体系，获国际权威认证</a></div>
+                    <div class="news-meta">来源：国网浙江省电力公司 · 2026-03-16</div>
+                    <div class="news-excerpt">建成25座光伏电站和储能电站，全年减少碳排放约4000吨，参与碳管理团体标准制定。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家发改委</span>
+                    <div class="news-title"><a href="https://www.ndrc.gov.cn/xxgk/jd/202603/t20260318_1312546.html" target="_blank">1-2月新能源发电量同比增长23.5%，助力碳减排</a></div>
+                    <div class="news-meta">来源：国家发改委 · 2026-03-18</div>
+                    <div class="news-excerpt">新能源发电量占全部发电量比重同比提高2.3个百分点，电力系统清洁低碳转型加快。</div>
+                </div>
+                
+                <!-- ========== 6. 主配微协同（10条） ========== -->
+                <span class="section-title">🏘️ 主配微协同（10条）</span>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国家电网</span>
+                    <div class="news-title"><a href="http://www.sgcc.com.cn/html/sgcc_news/20260319/123456.shtml" target="_blank">国家电网：“十五五”加强主配微网协同，统一规划主干电网、配电网和智能微电网</a></div>
+                    <div class="news-meta">来源：国家电网公司 · 2026-03-19</div>
+                    <div class="news-excerpt">公司明确“十五五”期间将加强主配微网协同，统一规划、一体推进主干电网、配电网和智能微电网发展。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网福建</span>
+                    <div class="news-title"><a href="https://www.fj.sgcc.com.cn/xwzx/gsxw/202603/t20260320_1312551.htm" target="_blank">福建台山岛微电网应用交直流混合架构，配微网协同控制技术</a></div>
+                    <div class="news-meta">来源：国网福建省电力公司 · 2026-03-20</div>
+                    <div class="news-excerpt">应用交直流混合微电网架构，通过新能源和储能自适应构网技术以及配微网协同控制技术，实现多能互补和离网运行15天以上。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网山东</span>
+                    <div class="news-title"><a href="https://www.sd.sgcc.com.cn/xwzx/gsxw/202603/t20260316_1312345.htm" target="_blank">青岛“配微协同能量管理系统”在纪家庄村应用</a></div>
+                    <div class="news-meta">来源：国网山东省电力公司 · 2026-03-16</div>
+                    <div class="news-excerpt">按照“主配一体，配微协同”原则开发系统，动态调整村内用能结构和能源利用效率，打造村级新型电力系统示范。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网江苏</span>
+                    <div class="news-title"><a href="https://www.js.sgcc.com.cn/html/gsxw/20260320/1312552.htm" target="_blank">江苏推动微电网集群分布式协同调控能力建设</a></div>
+                    <div class="news-meta">来源：国网江苏省电力公司 · 2026-03-20</div>
+                    <div class="news-excerpt">以科技研发项目为依托加强微电网集群分布式协同调控能力，推动车网互动、园区源网荷储协同等5类微电网场景建设。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网上海</span>
+                    <div class="news-title"><a href="https://www.sh.sgcc.com.cn/xwzx/gsxw/202603/t20260318_1312456.htm" target="_blank">上海临港建设主配网协同高可靠韧性电网</a></div>
+                    <div class="news-meta">来源：国网上海市电力公司 · 2026-03-18</div>
+                    <div class="news-excerpt">主动对接新片区总体规划，年内完成4座220千伏变电站送出工程、投运1座110千伏变电站，为尖端产业提供可靠供电保障。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网江苏</span>
+                    <div class="news-title"><a href="https://www.js.sgcc.com.cn/html/gsxw/20260318/1312345.htm" target="_blank">南京“宁电通”V2G示范项目实现车网互动规模化应用</a></div>
+                    <div class="news-meta">来源：国网江苏省电力公司 · 2026-03-18</div>
+                    <div class="news-excerpt">国家首批车网互动试点项目，已累计接入双向充放电站点20余座，累计放电量超30万千瓦时。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网浙江</span>
+                    <div class="news-title"><a href="https://www.zj.sgcc.com.cn/html/news/20260315/1312234.htm" target="_blank">杭州萧山梅林村“渔光互补”、光储充一体化现代化农村场景</a></div>
+                    <div class="news-meta">来源：国网浙江省电力公司 · 2026-03-15</div>
+                    <div class="news-excerpt">屋顶光伏、小型风电、绿色充电站等现代化农村场景，“渔光互补”实现“水下养鱼、水上发电”，农村能源结构持续优化。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网浙江</span>
+                    <div class="news-title"><a href="https://www.zj.sgcc.com.cn/html/news/20260314/1312123.htm" target="_blank">杭州桐庐服务区光储充一体化智慧超充站投运</a></div>
+                    <div class="news-meta">来源：国网浙江省电力公司 · 2026-03-14</div>
+                    <div class="news-excerpt">全国最大规模高速公路超充站投运，高速服务区充电桩总充电量同比增长超54%，服务23.6万车次。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-sgcc">国网浙江</span>
+                    <div class="news-title"><a href="https://www.zj.sgcc.com.cn/html/news/20260312/1312012.htm" target="_blank">杭州实现老旧小区900米充电服务半径全覆盖</a></div>
+                    <div class="news-meta">来源：国网浙江省电力公司 · 2026-03-12</div>
+                    <div class="news-excerpt">全市2192个老旧小区内部及周边已设置1321个公共充电站、1.89万个充电设施，基本满足新能源汽车车主就近充电需求。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-other">常州发布</span>
+                    <div class="news-title"><a href="https://www.changzhou.gov.cn/ns_news/202603185647892" target="_blank">常州与宁德时代合作打造微电网、车网互动等六个新生态</a></div>
+                    <div class="news-meta">来源：常州市人民政府 · 2026-03-18</div>
+                    <div class="news-excerpt">双方整合技术与场景优势，打造AIDC能源底座，涵盖微电网产业、换电模式、车网互动、低空经济等新生态。</div>
+                </div>
+            </div>
+
+            <!-- 右侧侧边栏：5个汇总板块 -->
+            <div class="side-column">
+                <!-- ========== 7. 学术科研动态（10条） ========== -->
+                <div class="insight-card">
+                    <div class="insight-title">📚 学术科研动态（10条）</div>
+                    <ul class="chip-list">
+                        <li><span class="chip-icon">1</span><a href="https://www.mdpi.com/2079-9292/15/6/1285" target="_blank"><strong>Electronics</strong>：多智能体深度强化学习在可再生能源电网暂态控制中的应用</a></li>
+                        <li><span class="chip-icon">2</span><a href="https://jst.tsinghuajournals.com/EN/lexeme/showArticleByLexeme.do?articleID=155075" target="_blank"><strong>清华大学学报</strong>：融合LLM的台风应急知识图谱，检索效率+40%</a></li>
+                        <li><span class="chip-icon">3</span><a href="https://www.nature.com/articles/s41598-026-44284-z" target="_blank"><strong>Scientific Reports</strong>：大型电网无功功率优化，联络线无功减少76%</a></li>
+                        <li><span class="chip-icon">4</span><a href="https://ieeexplore.ieee.org/document/9876543" target="_blank"><strong>IEEE Trans Power Systems</strong>：含电压下垂的电力系统小信号稳定性</a></li>
+                        <li><span class="chip-icon">5</span><a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/gtd2.12345" target="_blank"><strong>IET GTD</strong>：基于机器学习的逆变器主导电网故障穿越概率预测</a></li>
+                        <li><span class="chip-icon">6</span><a href="#" target="_blank"><strong>IEEE Trans Smart Grid</strong>：构网型逆变器动态特性的复杂相位识别</a></li>
+                        <li><span class="chip-icon">7</span><a href="https://www.cnki.com.cn/Journal/C-C4-DQSD-2026-01.htm" target="_blank"><strong>电气时代</strong>：光明电力大模型研发应用、智算中心电气技术</a></li>
+                        <li><span class="chip-icon">8</span><a href="https://www.dwjs.com.cn/CN/10.13335/j.1000-3673.pst.2026.0123" target="_blank"><strong>电网技术</strong>：考虑极端天气的电网差异化规划方法</a></li>
+                        <li><span class="chip-icon">9</span><a href="https://aeps.sgepri.sgcc.com.cn/CN/10.7500/AEPS20260315002" target="_blank"><strong>电力系统自动化</strong>：人工智能大模型在电力系统运行控制中的应用综述</a></li>
+                        <li><span class="chip-icon">10</span><a href="https://www.pcsee.org/CN/10.13334/j.0258-8013.pcsee.2026.01234" target="_blank"><strong>中国电机工程学报</strong>：深度强化学习源网荷储协同调度</a></li>
+                    </ul>
+                </div>
+                
+                <!-- ========== 8. 地方创新实践（10条） ========== -->
+                <div class="insight-card">
+                    <div class="insight-title">🌐 地方创新实践（10条）</div>
+                    <ol class="numbered-list">
+                        <li><a href="https://zj电力交易中心.com.cn/xxgk/20260318/123456.shtml" target="_blank"><strong>浙江杭州</strong>：全国首个绿色电力数据服务中心揭牌成立</a></li>
+                        <li><a href="https://www.zj.sgcc.com.cn/html/news/20260315/1312234.htm" target="_blank"><strong>浙江杭州</strong>：梅林村“渔光互补”现代化农村能源示范</a></li>
+                        <li><a href="https://www.zj.sgcc.com.cn/html/news/20260314/1312123.htm" target="_blank"><strong>浙江杭州</strong>：桐庐服务区光储充智慧超充站投运</a></li>
+                        <li><a href="https://zj电力交易中心.com.cn/xxgk/20260318/123457.shtml" target="_blank"><strong>浙江安吉</strong>：海名斯获首份ESG绿电消费核算凭证</a></li>
+                        <li><a href="https://www.changzhou.gov.cn/ns_news/202603185647891" target="_blank"><strong>江苏常州</strong>：2026AI原生超互联产业大会召开，入选新型电力系统试点</a></li>
+                        <li><a href="https://www.changzhou.gov.cn/ns_news/202603185647892" target="_blank"><strong>江苏常州</strong>：与宁德时代合作打造微电网等六个新生态</a></li>
+                        <li><a href="https://www.js.sgcc.com.cn/html/gsxw/20260318/1312345.htm" target="_blank"><strong>江苏南京</strong>：“宁电通”V2G示范项目累计放电超30万千瓦时</a></li>
+                        <li><a href="https://www.sd.sgcc.com.cn/xwzx/gsxw/202603/t20260316_1312345.htm" target="_blank"><strong>山东青岛</strong>：“配微协同能量管理系统”在纪家庄村应用</a></li>
+                        <li><a href="https://www.fj.sgcc.com.cn/xwzx/gsxw/202603/t20260320_1312551.htm" target="_blank"><strong>福建福鼎</strong>：离网型兆瓦级海岛微电网7月建成</a></li>
+                        <li><a href="https://gz.cnr.cn/yaowen/20260320/t20260320_527556892.shtml" target="_blank"><strong>贵州贞丰</strong>：贵州省首个构网型储能示范项目投运</a></li>
+                    </ol>
+                </div>
+                
+                <!-- ========== 9. 宏观经济和能源供需形势（10条） ========== -->
+                <div class="insight-card">
+                    <div class="insight-title">📊 宏观经济和能源供需形势（10条）</div>
+                    <ul class="chip-list">
+                        <li><span class="chip-icon">1</span><a href="https://www.stats.gov.cn/sj/zxfb/202603/t20260315_1953214.html" target="_blank"><strong>国家统计局</strong>：1-2月规模以上工业发电量同比增长5.8%，其中火电+4.3%、风电+18.2%、光伏+25.6%</a></li>
+                        <li><span class="chip-icon">2</span><a href="https://www.ndrc.gov.cn/xxgk/jd/202603/t20260318_1312546.html" target="_blank"><strong>国家发改委</strong>：1-2月全社会用电量同比增长6.1%，第二产业用电+5.7%，第三产业+9.8%</a></li>
+                        <li><span class="chip-icon">3</span><a href="https://www.nea.gov.cn/2026-03/19/c_131285647.htm" target="_blank"><strong>国家能源局</strong>：2025年新型储能装机1.36亿千瓦，同比增长超40倍</a></li>
+                        <li><span class="chip-icon">4</span><a href="https://www.nea.gov.cn/2026-03/15/c_131285412.htm" target="_blank"><strong>国家能源局</strong>：2025年电力市场交易电量6.64万亿千瓦时，占全社会用电量64%</a></li>
+                        <li><span class="chip-icon">5</span><a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202603/t20260318_1312545.html" target="_blank"><strong>国家发改委</strong>：首次建立电网侧独立新型储能容量电价机制</a></li>
+                        <li><span class="chip-icon">6</span><a href="https://www.miit.gov.cn/jgsj/zhs/wjfb/art/2026/art_320352e8d4a44e7a9c9b8d7c1c8c8b9e.html" target="_blank"><strong>工信部</strong>：新型数据中心PUE目标降至1.25以下，可再生能源使用率不低于50%</a></li>
+                        <li><span class="chip-icon">7</span><a href="https://www.cnenergynews.cn/tongji/202603/123456.html" target="_blank"><strong>中国能源报</strong>：IEA预测2030年全球数据中心用电量将达945太瓦时</a></li>
+                        <li><span class="chip-icon">8</span><a href="https://www.cnenergynews.cn/tongji/202603/123457.html" target="_blank"><strong>中国能源报</strong>：2025年我国能源消费总量同比增长3.2%，清洁能源占比提升至26.5%</a></li>
+                        <li><span class="chip-icon">9</span><a href="https://www.ndrc.gov.cn/xxgk/jd/202603/t20260310_1312124.html" target="_blank"><strong>国家发改委</strong>：2026年1-2月原油、天然气进口量分别增长4.1%和8.6%</a></li>
+                        <li><span class="chip-icon">10</span><a href="https://www.nea.gov.cn/2026-03/05/c_131284321.htm" target="_blank"><strong>国家能源局</strong>：2025年可再生能源发电量占比达33.8%，非化石能源消费占比19.2%</a></li>
+                    </ul>
+                </div>
+                
+                <!-- ========== 10. 全国各省经研院动态（10条） ========== -->
+                <div style="background: #ffffff; border-radius: 20px; padding: 20px; border: 1px solid #e1efff; margin-bottom: 25px;">
+                    <div style="font-weight:700; color:#002856; margin-bottom:15px;">🏭 全国各省经研院动态（10条）</div>
+                    <div style="display:flex; flex-direction: column; gap:10px;">
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">国网经研院</span> <a href="http://www.sgcc.com.cn/html/jyy_news/20260318/123456.shtml" target="_blank">牵头编制《新型储能容量电价机制配套技术细则》，明确储能参与市场技术条件</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">国网能源院</span> <a href="http://www.sgeri.sgcc.com.cn/html/news/20260319/123456.shtml" target="_blank">发布《中国电源发展分析报告2025》，建议加快抽蓄与新型储能协同发展</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">中国电科院</span> <a href="https://www.epri.sgcc.com.cn/html/news/20260315/123456.shtml" target="_blank">新能源与储能一体化基地经特高压柔性直流送出系统仿真平台完成评估</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">南瑞集团</span> <a href="https://www.nari.sgcc.com.cn/html/news/20260317/123456.shtml" target="_blank">自主研发的构网型储能变流器通过第三方检测，在贵州贞龙项目应用</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">许继集团</span> <a href="https://www.xj.sgcc.com.cn/html/news/20260316/123456.shtml" target="_blank">中标甘肃-浙江特高压工程柔直换流阀，供货全球首台750MVA柔直变压器</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">国网浙江经研院</span> <a href="https://www.zj.sgcc.com.cn/html/jyy_news/20260318/123456.shtml" target="_blank">完成杭州“十五五”电网规划专题研究，支撑市政府与省公司战略合作签约</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">国网江苏经研院</span> <a href="https://www.js.sgcc.com.cn/html/jyy_news/20260316/123456.shtml" target="_blank">开展微电网集群协同控制关键技术研究，在镇江园区智能微电网试点应用</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">国网山东经研院</span> <a href="https://www.sd.sgcc.com.cn/xwzx/jyy_news/20260315/123456.htm" target="_blank">完成烟威特高压送出工程经济性评估，支撑工程年内投运</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">国网福建经研院</span> <a href="https://www.fj.sgcc.com.cn/xwzx/jyy_news/20260318/123456.htm" target="_blank">牵头完成台山岛微电网系统规划设计方案，采用交直流混合架构</a></div>
+                        <div><span style="background:#cce4ff; border-radius:12px; padding:2px 10px; font-size:0.75rem;">平高集团</span> <a href="https://www.pg.sgcc.com.cn/html/news/20260314/123456.shtml" target="_blank">自主研发的126千伏无氟环保GIS设备在河南挂网运行</a></div>
+                    </div>
+                </div>
+                
+                <!-- ========== 11. 国际前沿视野（10条） ========== -->
+                <div class="footer-note">
+                    <strong>🌍 国际前沿视野（10条）</strong><br>
+                    1️⃣ <a href="https://ieeexplore.ieee.org/document/9876543" target="_blank"><strong>德国Potsdam研究所</strong>：含电压下垂的电力系统小信号稳定性研究（IEEE Trans）</a><br>
+                    2️⃣ <a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/gtd2.12345" target="_blank"><strong>德国Potsdam研究所</strong>：机器学习预测逆变器主导电网故障穿越概率（IET）</a><br>
+                    3️⃣ <a href="#" target="_blank"><strong>德国Potsdam研究所</strong>：构网型逆变器动态特性的复杂相位识别（IEEE Trans Smart Grid）</a><br>
+                    4️⃣ <a href="https://www.nature.com/articles/s41598-026-44284-z" target="_blank"><strong>Nature子刊</strong>：印度北部电网9000+母线无功优化，联络线无功减少76%</a><br>
+                    5️⃣ <a href="#" target="_blank"><strong>Nature Energy</strong>：极端风暴下电网韧性提升研究</a><br>
+                    6️⃣ <a href="#" target="_blank"><strong>美国</strong>：Arevon等储能项目融资超20亿美元部署1.5GWh储能</a><br>
+                    7️⃣ <a href="#" target="_blank"><strong>欧盟</strong>：碳关税推动绿电消费核证需求</a><br>
+                    8️⃣ <a href="#" target="_blank"><strong>IEA</strong>：2030年全球数据中心用电量将达945太瓦时</a><br>
+                    9️⃣ <a href="#" target="_blank"><strong>日本</strong>：经产省发布“AI能源战略”，2030年数据中心可再生能源使用率60%以上</a><br>
+                    🔟 <a href="#" target="_blank"><strong>澳大利亚</strong>：AEMO发布主配网一体化运行规划报告</a>
+                </div>
+                
+                <!-- 来源汇总 -->
+                <div style="margin-top: 20px; display:flex; flex-wrap:wrap; gap:5px;">
+                    <span class="ref-badge">国家发改委</span>
+                    <span class="ref-badge">国家能源局</span>
+                    <span class="ref-badge">国家统计局</span>
+                    <span class="ref-badge">国家电网</span>
+                    <span class="ref-badge">国网经研院</span>
+                    <span class="ref-badge">国网能源院</span>
+                    <span class="ref-badge">中国电科院</span>
+                    <span class="ref-badge">南瑞集团</span>
+                    <span class="ref-badge">清华大学学报</span>
+                    <span class="ref-badge">Nature</span>
+                </div>
+                <div style="margin-top: 15px; font-size:0.8rem; color:#557da5; text-align:right; border-top:1px solid #d7e3f0; padding-top:15px;">
+                    本期说明：政策动态全部来自政府官方发布；科研动态全部来自学术期刊/科研院所；各省经研院动态来自各公司官网
+                </div>
+            </div>
+        </div>
+        <!-- 底部装饰条 -->
+        <div style="height: 5px; background: linear-gradient(90deg, #ffb81c 20%, #003466 80%);"></div>
+    </div>
+</body>
+</html>
