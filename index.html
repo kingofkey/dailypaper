@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📡 能源电力与AI快报 | 经研智库 · 2026-03-23</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f0f4f9;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .daily-brief {
+            max-width: 1200px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 20, 60, 0.25);
+            overflow: hidden;
+            border: 1px solid rgba(0, 85, 170, 0.15);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0b1f33 0%, #123456 100%);
+            padding: 25px 35px;
+            color: white;
+            border-bottom: 5px solid #ffb81c;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .header-top .date {
+            font-size: 1rem;
+            font-weight: 400;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 16px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px);
+        }
+
+        .header-top .badge {
+            background: #ffb81c;
+            color: #0b1f33;
+            padding: 5px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin: 5px 0 0 0;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span {
+            font-weight: 300;
+            color: #b0d0ff;
+        }
+
+        .header .sub {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #cbd9ed;
+            flex-wrap: wrap;
+        }
+
+        .header .sub i {
+            font-style: normal;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23ffb81c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>') left center no-repeat;
+            padding-left: 22px;
+            background-size: 16px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 0;
+            background-color: #fff;
+        }
+
+        .main-column {
+            padding: 30px 25px 30px 30px;
+            border-right: 1px solid #e5ecf3;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            margin: 30px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #ffb81c;
+            display: inline-block;
+            letter-spacing: 0.3px;
+        }
+
+        .section-title.first {
+            margin-top: 0;
+        }
+
+        .news-card {
+            margin-bottom: 22px;
+            border-bottom: 1px dashed #d9e2ef;
+            padding-bottom: 18px;
+        }
+
+        .news-card:last-child {
+            border-bottom: none;
+        }
+
+        .source-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-right: 6px;
+            font-weight: 600;
+        }
+        .source-gov { background: #e1ecfe; color: #024d8c; }
+        .source-sgcc { background: #fee7d4; color: #b34100; }
+        .source-media { background: #e1f0ea; color: #0f6b4a; }
+        .source-academic { background: #e6d9f2; color: #4a2b7a; }
+        .source-other { background: #eef3fc; color: #1a5a9c; }
+
+        .news-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #002b5c;
+            line-height: 1.3;
+            margin: 6px 0 4px;
+        }
+        .news-title a {
+            color: #002b5c;
+            text-decoration: none;
+        }
+        .news-title a:hover {
+            text-decoration: underline;
+            color: #ffb81c;
+        }
+
+        .news-meta {
+            color: #5f7d9e;
+            font-size: 0.75rem;
+            margin-bottom: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .news-meta a {
+            color: #1a5a9c;
+            text-decoration: none;
+        }
+        .news-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .news-excerpt {
+            color: #23456b;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .side-column {
+            padding: 30px 30px 30px 25px;
+            background-color: #f9fcff;
+        }
+
+        .insight-card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 18px -8px rgba(0,55,100,0.12);
+            border: 1px solid #eaf0f8;
+        }
+
+        .insight-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #002856;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .insight-title::before {
+            content: "⚡";
+            font-size: 1.5rem;
+        }
+
+        .numbered-list {
+            list-style: none;
+            counter-reset: item;
+            margin-bottom: 5px;
+        }
+        .numbered-list li {
+            counter-increment: item;
+            margin-bottom: 12px;
+            padding-left: 26px;
+            position: relative;
+            font-size: 0.9rem;
+            color: #1f3a5f;
+        }
+        .numbered-list li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #ffb81c;
+            color: #002856;
+            font-weight: 700;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .numbered-list li a {
+            color: #1f3a5f;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+        }
+        .numbered-list li a:hover {
+            color: #ffb81c;
+            border-bottom: 1px solid #ffb81c;
+        }
+
+        .chip-list {
+            list-style: none;
+        }
+        .chip-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5edf8;
+            font-size: 0.9rem;
+            color: #113355;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .chip-list li a {
+            color: #113355;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+        }
+        .chip-list li a:hover {
+            color: #ffb81c;
+        }
+
+        .chip-icon {
+            background: #d9e9ff;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #004a99;
+            font-weight: 700;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .ref-badge {
+            display: inline-flex;
+            background: #eef3fc;
+            border-radius: 16px;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            color: #2f6190;
+            margin-right: 6px;
+            margin-bottom: 4px;
+            border: 1px solid #cdddec;
+        }
+
+        @media (max-width: 800px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .main-column {
+                border-right: none;
+            }
+        }
+        .footer-note {
+            background: #e9f1fa;
+            border-radius: 18px;
+            padding: 18px;
+            color: #1f4172;
+            font-size: 0.9rem;
+            border: 1px solid #caddf0;
+        }
+    </style>
+</head>
+<body>
+    <div class="daily-brief">
+        <!-- 头部 -->
+        <div class="header">
+            <div class="header-top">
+                <span class="date">📅 2026年3月23日 · 周一 · 总第253期</span>
+                <span class="badge">经研专供 · 领导参阅</span>
+            </div>
+            <h1>能源电力 <span>×</span> 人工智能快报</h1>
+            <div class="sub">
+                <i>政策·政府官网 / 科研·学术期刊 / 各省经研院动态</i>
+                <i>储能容量电价·宏观经济·多智能体控制·应急知识图谱</i>
+            </div>
+        </div>
+        
+        <div class="grid-container">
+            <!-- 左侧主要区域：6个技术板块 -->
+            <div class="main-column">
+                <!-- ========== 1. 政策文件动态（10条·全部政府官方） ========== -->
+                <span class="section-title first">📜 政策文件动态（10条）</span>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家能源局</span>
+                    <div class="news-title"><a href="https://www.nea.gov.cn/2026-03/23/c_131286123.htm" target="_blank">《2026年能源工作指导意见》正式印发，明确新型储能发展目标</a></div>
+                    <div class="news-meta">来源：国家能源局官方网站 · 2026-03-23</div>
+                    <div class="news-excerpt">意见提出，2026年力争新增新型储能装机超过5000万千瓦，推动储能参与电力现货市场、辅助服务市场，完善储能容量电价机制。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家发改委</span>
+                    <div class="news-title"><a href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202603/t20260322_1312654.html" target="_blank">国家发改委：印发《关于推动源网荷储一体化发展的指导意见》</a></div>
+                    <div class="news-meta">来源：国家发展改革委 · 发改能源〔2026〕XX号 · 2026-03-22</div>
+                    <div class="news-excerpt">旨在通过一体化规划、建设和运营，提升电力系统综合效率与新能源消纳能力，明确支持“新能源+储能”等一体化项目开发。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">工信部</span>
+                    <div class="news-title"><a href="https://www.miit.gov.cn/jgsj/zhs/wjfb/art/2026/art_320352e8d4a44e7a9c9b8d7c1c8c8b9f.html" target="_blank">《工业领域人工智能融合应用指南（2026-2028年）》发布</a></div>
+                    <div class="news-meta">来源：工业和信息化部 · 2026-03-21</div>
+                    <div class="news-excerpt">将“智能电网与能源管理”列为重点方向，推动AI在负荷预测、故障诊断、调度优化、设备巡检等场景的深度应用。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家能源局</span>
+                    <div class="news-title"><a href="https://www.nea.gov.cn/2026-03/20/c_131285789.htm" target="_blank">国家能源局：启动2026年电力安全监管专项督查</a></div>
+                    <div class="news-meta">来源：国家能源局电力安全监管司 · 2026-03-20</div>
+                    <div class="news-excerpt">重点督查高比例新能源接入电网安全风险管控、新型储能电站安全管理、网络信息安全防护等。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家标准委</span>
+                    <div class="news-title"><a href="https://www.sac.gov.cn/xw/bzhxw/2026/03/20260319_385789.html" target="_blank">《虚拟电厂技术要求与运营管理规范》国家标准公开征求意见</a></div>
+                    <div class="news-meta">来源：国家标准化管理委员会 · 2026-03-19</div>
+                    <div class="news-excerpt">标准规定了虚拟电厂的资源聚合、通信接口、调控性能、市场交易、运营管理等技术要求。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">生态环境部</span>
+                    <div class="news-title"><a href="https://www.mee.gov.cn/xxgk/2026/03/20260318_1065789.shtml" target="_blank">《全国碳排放权交易市场发电行业重点排放单位名录（2026年度）》公布</a></div>
+                    <div class="news-meta">来源：生态环境部 · 2026-03-18</div>
+                    <div class="news-excerpt">名录涵盖超过2200家发电企业，要求其按规定完成2025年度碳排放核查与配额清缴。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家发改委</span>
+                    <div class="news-title"><a href="https://www.ndrc.gov.cn/xxgk/jd/202603/t20260317_1312456.html" target="_blank">1-2月全国固定资产投资增长5.5%，电力、热力生产和供应业投资增长18.2%</a></div>
+                    <div class="news-meta">来源：国家发改委新闻发布会 · 2026-03-17</div>
+                    <div class="news-excerpt">能源领域投资保持强劲，其中太阳能发电、风电投资分别增长35.1%和22.4%。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">国家能源局</span>
+                    <div class="news-title"><a href="https://zfxxgk.nea.gov.cn/2026-03/16/c_131284890.htm" target="_blank">《电力可靠性管理办法（暂行）》修订，新增新型储能系统可靠性管理要求</a></div>
+                    <div class="news-meta">来源：国家能源局综合司 · 2026-03-16</div>
+                    <div class="news-excerpt">要求电网企业、发电企业将新型储能纳入可靠性管理体系，并定期报送运行可靠性数据。</div>
+                </div>
+                
+                <div class="news-card">
+                    <span class="source-tag source-gov">科技部</span>
+                    <div class="news-title"><a href="https://www.most.gov.cn/xxgk/xinxifenlei/fdzdgknr/fgzc/gfxwj/gfxwj2026/202603/t20260315_1901234.html" target="_blank">“智能电网”重点专项2026年度项目申报指南发布</a></div>
+                    <div class="news-meta">来源：科学技术部 · 2026-03-15</div>
+                    <div class="news-excerpt">
